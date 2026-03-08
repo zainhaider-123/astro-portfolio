@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+const {
+  icon = "menu",
+  id = "mobile-nav-drawer",
+  buttonLabel = "Open menu",
+  panelLabel = "Navigation menu",
+  widthClass = "w-72",
+} = Astro.props;
+---
+
+<input id={id} type="checkbox" class="peer sr-only" aria-hidden="true" />
+
+<label
+  for={id}
+  aria-label={buttonLabel}
+  class="inline-flex cursor-pointer items-center justify-center"
+>
+  <Icon name={icon} />
+</label>
+
+<label
+  for={id}
+  class="fixed inset-0 z-40 cursor-pointer bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto"
+></label>
+
+<aside
+  aria-label={panelLabel}
+  class={`fixed top-0 right-0 z-50 h-screen max-w-full ${widthClass} translate-x-full border-l border-foreground/15 bg-background shadow-lg transition-transform duration-300 peer-checked:translate-x-0`}
+>
+  <div class="flex justify-end p-4">
+    <label
+      for={id}
+      class="inline-flex cursor-pointer items-center justify-center"
+      aria-label="Close menu"
+    >
+      <Icon name="x" />
+    </label>
+  </div>
+  <div class="px-5 pb-5">
+    <slot />
+  </div>
+</aside>

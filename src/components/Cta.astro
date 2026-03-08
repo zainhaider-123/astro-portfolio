@@ -1,0 +1,25 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../utils/cn";
+
+const ctaStyles = cva(
+  "inline-flex items-center justify-center rounded-md lg:px-5 lg:py-3 px-4 py-2 font-medium",
+  {
+    variants: {
+      variant: {
+        primary: "bg-foreground text-background hover:bg-foreground/90",
+        secondary: "bg-background text-foreground hover:bg-background/90",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+    },
+  },
+);
+
+const { class: className, variant = "primary", ...props } = Astro.props;
+---
+
+<a class={cn(ctaStyles({ variant }), className)} {...props}>
+  <slot />
+</a>

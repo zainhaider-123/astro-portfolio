@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Logo {
+  name: string;
+  logo: string;
+  color: string;
+}
+
+interface Props {
+  logos?: Logo[];
+}
+
+const { logos = [] } = Astro.props;
+---
+
+{
+  logos.length > 0 && (
+    <div class="group w-full overflow-x-hidden flex group bef-aft-shadow">
+      {Array.from({ length: 2 }).map((_, i) => (
+        <div
+          aria-hidden={i > 0}
+          class="flex shrink-0 items-center animate-marquee group-hover:[animation-play-state:paused]"
+        >
+          {logos.map((logo) => (
+            <div class="pr-14 py-3 group/item">
+              <div class="flex items-center gap-2 text-foreground">
+                <Icon
+                  name={logo.logo}
+                  style={`--logo-color: ${logo.color}`}
+                  class="inline group-hover/item:text-(--logo-color)"
+                  id={logo.logo}
+                />
+                <label for={logo.logo}>{logo.name}</label>
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  )
+}
