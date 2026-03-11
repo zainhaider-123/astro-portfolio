@@ -43,7 +43,7 @@ const navLinks: navLink[] = [
         </ul>
       </div>
       <div class="lg:col-span-2 sm:col-span-3 col-span-5">
-        <h4 class="font-bold capitalize">Get in Touch</h4>
+        <h4 class="font-bold capitalize">join my newsletter</h4>
         <form action="">
           <div class="mt-6 flex flex-col gap-4">
             <input
@@ -55,7 +55,7 @@ const navLinks: navLink[] = [
             />
             <button
               type="submit"
-              class="w-full border-2 border-foreground bg-foreground text-background p-2 rounded-lg"
+              class="w-full border-2 border-foreground bg-foreground text-background p-2 rounded-lg hover:bg-foreground/90 transition-colors duration-150"
             >
               Send
             </button>
@@ -71,11 +71,14 @@ const navLinks: navLink[] = [
       >
         <a
           href="/"
-          class="lg:text-2xl md:text-xl text-lg font-londrina font-bold hover:text-foreground/80 duration-150"
+          class="lg:text-2xl md:text-xl text-lg font-londrina font-bold hover:text-background/90 duration-150"
         >
           Zain Haider
         </a>
-        <a href="mailto:haiderzain@gmail.com" class="">
+        <a
+          href="mailto:haiderzain@gmail.com"
+          class="hover:text-background/90 duration-150"
+        >
           haiderzain@gmail.com
         </a>
       </div>

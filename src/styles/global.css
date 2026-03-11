@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
+  --background: #e0e0e0;
   --foreground: #111111;
 }
 
@@ -58,12 +58,12 @@
   }
 
   .line-hover::after {
-    @apply absolute rounded-full bg-foreground/80 transition-all opacity-0 duration-300 ease-in-out h-0.5 -bottom-1.5 left-1/2 -translate-x-1/2 w-1;
+    @apply absolute rounded-full bg-foreground/80 transition-all opacity-0 duration-300 ease-in-out h-0.5 -bottom-1.5 left-0 w-1;
     content: "";
   }
 
   .line-hover:hover::after {
-    @apply opacity-100 w-1/3;
+    @apply opacity-100 w-2/3;
   }
 
   .bef-aft-shadow {
@@ -80,12 +80,12 @@
     content: "";
   }
 
-  .sec-margin {
-    @apply 2xl:my-20 xl:my-16 lg:my-12 md:my-10 my-8;
+  .nav-padding{
+    @apply lg:py-5 py-3
   }
 
-  .hero-margin {
-    @apply 2xl:mt-16 xl:mt-12 lg:mt-10 md:mt-8 mt-6 2xl:mb-20 xl:mb-16 lg:mb-12 md:mb-10 mb-8;
+  .hero-padding {
+    @apply 2xl:pt-16 xl:pt-12 lg:pt-10 md:pt-8 pt-6 2xl:pb-20 xl:pb-16 lg:pb-12 md:pb-10 pb-8;
   }
 
   .sec-padding {

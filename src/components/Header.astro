@@ -9,21 +9,22 @@ export interface navLink {
 }
 
 const navLinks: navLink[] = [
-  { name: "About Me", href: "#about-me" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "About Me", href: "#" },
+  { name: "Projects", href: "#" },
+  { name: "Blogs", href: "#" },
+  { name: "Contact", href: "#" },
 ];
 ---
 
-<header class="lg:py-5 py-3">
+<header class="nav-padding">
   <div class="container mx-auto px-5">
     <div class="flex justify-between items-center">
       <a
         href="/"
-        class="lg:text-3xl md:text-2xl text-xl font-londrina font-bold hover:text-foreground/80 duration-150"
-        >Zain Haider</a
+        class="lg:text-3xl text-2xl font-londrina font-bold hover:text-foreground/80 duration-150"
       >
+        Zain Haider
+      </a>
       <nav class="hidden md:block">
         <ul class="flex xl:space-x-10 lg:space-x-8 md:space-x-6 space-x-4">
           {
@@ -43,7 +44,7 @@ const navLinks: navLink[] = [
           <Cta><Icon name="download" size={17} class="mr-2" /> Resume </Cta>
         </div>
 
-        <div class="md:hidden">
+        <div class="md:hidden flex items-center">
           <Slide id="header-mobile-nav" icon="menu" widthClass="w-80">
             <nav>
               <ul class="flex flex-col gap-6 text-lg">
