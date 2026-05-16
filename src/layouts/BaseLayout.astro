@@ -19,12 +19,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body
-    class="font-roboto antialiased bg-background text-foreground min-h-screen flex flex-col justify-between"
+    class="font-roboto antialiased bg-background text-foreground min-h-screen flex flex-col"
   >
     <Header />
-    <main>
-      <slot />
-    </main>
+    <slot />
     <Footer />
     <Image
       src="/paper-bg.webp"
@@ -33,7 +31,7 @@ const { title } = Astro.props;
       height={768}
       loading="lazy"
       aria-hidden="true"
-      class="fixed inset-0 -z-10 size-full object-cover pointer-events-none opacity-30"
+      class="fixed inset-0 -z-1 size-full object-cover pointer-events-none opacity-30"
     />
   </body>
 </html>
