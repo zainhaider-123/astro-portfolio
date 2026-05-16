@@ -2,7 +2,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../utils/cn";
 
-const ctaStyles = cva(
+const buttonStyles = cva(
   "inline-flex items-center justify-center rounded-md lg:px-5 lg:py-3 px-4 py-2 font-medium duration-150 transition-colors",
   {
     variants: {
@@ -18,11 +18,13 @@ const ctaStyles = cva(
 );
 
 interface Props
-  extends VariantProps<typeof ctaStyles>, astroHTML.JSX.AnchorHTMLAttributes {}
+  extends
+    VariantProps<typeof buttonStyles>,
+    astroHTML.JSX.ButtonHTMLAttributes {}
 
 const { class: className, variant = "primary", ...props } = Astro.props;
 ---
 
-<a class={cn(ctaStyles({ variant }), className)} {...props}>
+<button class={cn(buttonStyles({ variant }), className)} {...props}>
   <slot />
-</a>
+</button>
