@@ -1,18 +1,9 @@
 ---
-export interface navLink {
-  name: string;
-  href: string;
-}
-
-const navLinks: navLink[] = [
-  { name: "About Me", href: "#about-me" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import { navLinks } from "../utils/content";
+import Button from "./Button.astro";
 ---
 
-<footer class="sec-padding pb-0">
+<footer class="sec-padding pb-0 mt-auto">
   <div class="container mx-auto px-5 sm:text-left text-center">
     <div class="grid grid-cols-5 xl:gap-16 lg:gap-12 gap-10">
       <div class="lg:col-span-2 sm:col-span-5 col-span-5">
@@ -53,12 +44,7 @@ const navLinks: navLink[] = [
               id=""
               class="w-full border-[1.5px] border-foreground/80 p-2 rounded-lg"
             />
-            <button
-              type="submit"
-              class="w-full border-2 border-foreground bg-foreground text-background p-2 rounded-lg hover:bg-foreground/90 transition-colors duration-150"
-            >
-              Send
-            </button>
+            <Button type="submit"> Send </Button>
           </div>
         </form>
       </div>

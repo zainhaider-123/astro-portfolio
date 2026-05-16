@@ -1,15 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-interface Logo {
-  name: string;
-  logo: string;
-  color: string;
-}
-
-interface Props {
-  logos?: Logo[];
-}
+import type { techStack } from "../utils/types";
 
 const { logos = [] } = Astro.props;
 ---
@@ -22,7 +13,7 @@ const { logos = [] } = Astro.props;
           aria-hidden={i > 0}
           class="flex shrink-0 items-center animate-marquee group-hover:[animation-play-state:paused]"
         >
-          {logos.map((logo) => (
+          {logos.map((logo: techStack) => (
             <div class="pr-14 py-3 group/item">
               <div class="flex items-center gap-2 text-foreground">
                 <Icon
