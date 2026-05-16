@@ -1,0 +1,95 @@
+---
+import Button from "../components/Button.astro";
+import Experience from "../components/Experience.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { aboutMe, myExperience } from "../utils/content";
+---
+
+<BaseLayout title="About Me">
+  <main>
+    <!-- hero section -->
+    <section class="hero-margin">
+      <div class="container mx-auto px-5">
+        <p class="sm:text-left text-center">{aboutMe.intro}</p>
+      </div>
+    </section>
+
+    <!-- skills section -->
+    <section class="sec-margin">
+      <div class="container mx-auto px-5">
+        <h2 class="capitalize sm:text-left text-center">
+          What i <span class="font-bold">know</span>
+        </h2>
+        <p class="sm:text-left text-center">
+          I mostly code in JavaScript, TypeScript and Python. Here are some of
+          the technologies and tools I frequently use:
+        </p>
+        <div
+          class="mt-5 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 xl:gap-6 gap-2 view-more"
+          id="view-more-container"
+        >
+          {
+            aboutMe.techStack.other.map((skill) => (
+              <div class="border border-foreground hover:bg-foreground hover:text-background duration-100 ease-in-out rounded-sm w-full aspect-square flex flex-col items-center justify-center gap-2 text-center p-3 max-h-100">
+                <p class="">{skill.name}</p>
+                <p>{skill.color}</p>
+              </div>
+            ))
+          }
+        </div>
+        <Button id="view-more-btn" class="mx-auto block lg:hidden" client:load>
+          View More
+        </Button>
+      </div>
+    </section>
+
+    <!-- experience section -->
+    <section class="sec-margin">
+      <div class="container mx-auto px-5">
+        <h2 class="w-full sm:text-left text-center">
+          My <span class="font-bold">Experience</span>
+        </h2>
+        {
+          myExperience.map((experience) => (
+            <Experience
+              class="2xl:mt-16 xl:mt-12 lg:mt-10 md:mt-8 mt-6"
+              designation={experience.title}
+              company={experience.company}
+              duration={experience.duration}
+              description={experience.description}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- repeated section -->
+    {
+      aboutMe.sections &&
+        aboutMe.sections.map((section) => (
+          <section class="sec-margin">
+            <div class="container mx-auto px-5">
+              <h2 class="w-full sm:text-left text-center ">
+                {section.heading}
+              </h2>
+              {section.content.map((paragraph) => (
+                <p class="sm:text-left text-center">{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        ))
+    }
+  </main>
+</BaseLayout>
+
+<script>
+  const btn = document.querySelector("#view-more-btn");
+  const container = document.querySelector("#view-more-container");
+
+  btn?.addEventListener("click", () => {
+    if (container) {
+      const collapsed = container.classList.toggle("view-more");
+      btn.textContent = collapsed ? "View More" : "View Less";
+    }
+  });
+</script>
