@@ -1,72 +1,48 @@
 ---
-import Cta from "./Cta.astro";
+import Stamp from "./Stamp.astro";
 import Slide from "./Slide.astro";
-import { Icon } from "astro-icon/components";
 
-export interface navLink {
-  name: string;
-  href: string;
-}
-
-const navLinks: navLink[] = [
-  { name: "About Me", href: "/" },
-  { name: "Projects", href: "/" },
-  { name: "Blogs", href: "/" },
-  { name: "Contact", href: "/" },
+const navLinks = [
+  { name: "Notes", href: "#notes" },
+  { name: "Assemblies", href: "#assemblies" },
+  { name: "Service", href: "#service" },
+  { name: "Call in", href: "#contact" },
 ];
 ---
 
-<header class="nav-padding">
-  <div class="container mx-auto px-5">
-    <div class="flex justify-between items-center">
-      <a
-        href="/"
-        class="lg:text-3xl text-2xl font-londrina font-bold hover:text-foreground/80 duration-150"
-      >
-        Zain Haider
-      </a>
-      <nav class="hidden md:block">
-        <ul class="flex xl:space-x-10 lg:space-x-8 md:space-x-6 space-x-4">
-          {
-            navLinks.map((link) => (
-              <li>
-                <a href={link.href} class="line-hover">
-                  {link.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-
-      <div class="flex gap-5 items-center">
-        <div class="hidden sm:block">
-          <Cta><Icon name="download" size={17} class="mr-2" /> Resume </Cta>
-        </div>
-
-        <div class="md:hidden flex items-center">
-          <Slide id="header-mobile-nav" icon="menu" widthClass="w-80">
-            <nav>
-              <ul class="flex flex-col gap-6 text-lg">
-                {
-                  navLinks.map((link) => (
-                    <li>
-                      <a href={link.href} class="line-hover">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))
-                }
-              </ul>
-              <div class="mt-8 block sm:hidden">
-                <Cta
-                  ><Icon name="download" size={17} class="mr-2" /> Resume
-                </Cta>
-              </div>
-            </nav>
-          </Slide>
-        </div>
-      </div>
+<header class="running-head">
+  <p class="plate-label m-0">ZH-SM · REV 01</p>
+  <nav class="hidden md:block" aria-label="Primary">
+    <ul class="flex items-center gap-7">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="md:hidden">
+      <Slide id="header-mobile-nav" icon="menu" widthClass="w-80" buttonLabel="Menu">
+        <nav aria-label="Mobile">
+          <ul class="flex flex-col gap-5">
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="nav-link text-lg">
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mt-8">
+            <Stamp href="#contact">Request packet</Stamp>
+          </div>
+        </nav>
+      </Slide>
     </div>
-  </div>
 </header>

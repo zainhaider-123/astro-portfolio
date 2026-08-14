@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
@@ -16,24 +15,36 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Service manual for Zain Haider, software developer. Shipped Node.js and Python systems."
+    />
     <title>{title}</title>
   </head>
-  <body
-    class="font-roboto antialiased bg-background text-foreground min-h-screen flex flex-col justify-between"
-  >
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <Image
-      src="/paper-bg.webp"
-      alt="Background Pattern"
-      width={768}
-      height={768}
-      loading="lazy"
-      aria-hidden="true"
-      class="fixed inset-0 -z-10 size-full object-cover pointer-events-none opacity-30"
-    />
+  <body class="min-h-screen">
+    <!--
+THESIS: The page is a cabinet service manual. Shipped systems are exploded assemblies a recruiter walks up to — not a headshot-hero with a skill marquee.
+OWN-WORLD: Newsprint #E8DCC8, ink #1A1814, stamp #C41E3A, cyan #2A6F97. Big Shoulders Display plates, Source Sans 3 body. Hole-punch binding, snipped plates, overprint rules, revision stamps. No CRT, pixels, or neon.
+STORY: A hiring manager inspects the machines, requests the résumé packet, and calls the operator in.
+FIRST VIEWPORT: Model-plate name across the top, full size. Left: exploded drawing of the primary portal with numbered balloons. Right: keyed notes, parts, Resume stamp and Call-in stamp as the primary actions.
+FORM: Operator Manual, 1 of 7, seed f4b27d09.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+    <a class="skip-link" href="#main">Skip to contents</a>
+    <div class="manual-page">
+      <div class="binding" aria-hidden="true">
+        <span class="punch"></span>
+        <span class="punch"></span>
+        <span class="punch"></span>
+        <span class="punch"></span>
+      </div>
+      <div class="px-4 sm:px-6 lg:px-8">
+        <Header />
+        <main id="main">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
   </body>
 </html>

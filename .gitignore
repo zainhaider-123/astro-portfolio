@@ -21,3 +21,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 config.bat
+
+docs/reference.md
+
+.impeccable/
+.pnpm-store/
