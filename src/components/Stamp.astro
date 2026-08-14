@@ -1,0 +1,9 @@
+---
+import { cn } from "../utils/cn";
+
+const { class: className, ghost = false, ...props } = Astro.props;
+---
+
+<a class={cn("stamp", ghost && "stamp-ghost", className)} {...props}>
+  <span><slot /></span>
+</a>

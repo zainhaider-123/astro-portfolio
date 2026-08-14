@@ -1,0 +1,79 @@
+---
+const modules = [
+  {
+    id: "1",
+    label: "DISPLAY",
+    spec: "Next.js",
+    note: "Portal on Next.js and PostgreSQL. Three roles. About 1,000 daily users.",
+  },
+  {
+    id: "2",
+    label: "AUTH GATE",
+    spec: "3 tiers",
+    note: "Better Auth. Three access tiers.",
+  },
+  {
+    id: "3",
+    label: "INTAKE",
+    spec: "Webhooks",
+    note: "DocuSign and Typeform. About 10 submissions a week.",
+  },
+  {
+    id: "4",
+    label: "QUEUE",
+    spec: "JSONB jobs",
+    note: "PostgreSQL JSONB queue. Three retries. No lost payloads.",
+  },
+  {
+    id: "5",
+    label: "LEDGER",
+    spec: "Multi-currency",
+    note: "Multi-currency investment records.",
+  },
+  {
+    id: "6",
+    label: "QA PROBE",
+    spec: "Figma API",
+    note: "AI QA vs Figma. Five pages at once. Defects to Jira.",
+  },
+];
+---
+
+<div class="probe">
+  {
+    modules.map((mod, i) => (
+      <input
+        class="sr-only"
+        type="radio"
+        name="fig1"
+        id={`fig1-${mod.id}`}
+        checked={i === 0}
+        aria-label={`${mod.label}: ${mod.note}`}
+      />
+    ))
+  }
+  <div class="drawing-board p-4 sm:p-6">
+    <p class="plate-label text-cyan">FIG. 1</p>
+    <div class="probe-stack mt-4" role="list">
+      {
+        modules.map((mod) => (
+          <label
+            role="listitem"
+            for={`fig1-${mod.id}`}
+            class={`probe-bay probe-bay-${mod.id}`}
+          >
+            <span class="probe-bay-bar" />
+            <span class="probe-bay-copy">
+              <span class="probe-bay-head">
+                <span class="probe-bay-label">{mod.label}</span>
+                <span class="probe-bay-spec">{mod.spec}</span>
+              </span>
+              <span class={`probe-note probe-note-${mod.id}`}>{mod.note}</span>
+            </span>
+            <span class="balloon">{mod.id}</span>
+          </label>
+        ))
+      }
+    </div>
+  </div>
+</div>
