@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 import LogoMarquee from "../components/LogoMarquee.astro";
 
 const intro = [
-	"I am a full stack developer with experience in building web applications using JavaScript, React, Node.js, and other technologies. I am passionate about creating high-quality software that solves real-world problems. I am always eager to learn new technologies and improve my skills.",
+	"Full stack developer based in Karachi, shipping production web apps with Node.js, Python, and React. I care about reliable integrations, clean APIs, and tooling that makes teams move faster.",
 ];
 
 const mySkill = [
@@ -49,40 +49,40 @@ const mySkill = [
 
 const myExperience = [
 	{
-		title: "Software Engineer",
-		company: "Tech Company",
-		duration: "Jan 2020 - Present",
+		title: "Junior Full Stack Developer",
+		company: "MayaBytes",
+		duration: "Sep 2025 – Present",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-	},
-	{
-		title: "Frontend Developer",
-		company: "Web Agency",
-		duration: "Jun 2018 - Dec 2019",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			"Worked with Next.js, React, WordPress, PostgreSQL, and Better Auth. Built REST APIs and webhook integrations (DocuSign, Typeform) with async job queues, and translated Figma designs into responsive production pages across WordPress and Next.js.",
 	},
 ];
 
 const aboutMe = [
-	"I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me. I would love to hear from you!. I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me.",
-	"I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me. I would love to hear from you!. I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me. I would love to hear from you!",
-	"I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me. I would love to hear from you!. I am always open to new opportunities and collaborations. If you are interested in working together, please feel free to reach out to me. I would love to hear from you!",
+	"I'm Syed Zain Haider Zaidi, a software developer in Karachi focused on full stack work across Node.js and Python. Day to day that means React and Next.js on the frontend, solid backend APIs, and getting third-party systems to talk to each other without drama.",
+	"I recently finished a Bachelor of Engineering in Electronics at NED University and started a Master's in Software Engineering there. That mix of hardware grounding and software depth shapes how I debug systems end to end — from UI polish to database jobs and webhook edge cases.",
+	"Outside product work I build developer tooling: agent skill CLIs, design QA automations, and small UI libraries. If you want to collaborate or chat about a role, reach out on GitHub, Discord, or email.",
 ];
 
 const project = [
 	{
-		name: "Project 1",
+		name: "tether-store",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		link: "/",
+			"A Go CLI for managing AI agent skills. Skills install into a shared cache, stay declared in hierarchical JSON config, and symlink into each agent's skill directory so you can flip what is active without copying files around.",
+		link: "https://github.com/zainhaider-123/tether-store",
 		image: "/project.webp",
 	},
 	{
-		name: "Project 2",
+		name: "qa-skill",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		link: "/",
+			"An OpenCode skill that QA's a live site against its Figma frame section by section. With a Figma MCP connector and the site URL, it scores each section as pass, warning, or severe and writes a full bug report — the same workflow I used to automate design review at work.",
+		link: "https://github.com/zainhaider-123/opencode-qa-skill",
+		image: "/project.webp",
+	},
+	{
+		name: "noia-ui",
+		description:
+			"A lightweight carousel UI library built with plain JavaScript, CSS, and HTML. Drop-in components for common carousel patterns without pulling in a heavy framework.",
+		link: "https://github.com/zainhaider-123/noia-ui",
 		image: "/project.webp",
 	},
 ];
@@ -213,7 +213,7 @@ const project = [
 						<div
 							class={`col-span-1 ${index % 2 !== 0 ? "md:order-last 2xl:pl-20 xl:pl-14 lg:pl-10 md:pl-8 pl-0" : "2xl:pr-20 xl:pr-14 lg:pr-10 md:pr-8 pr-0"}`}
 						>
-							<a href={project.link}>
+							<a href={project.link} target="_blank" rel="noopener noreferrer">
 								<Image
 									src={project.image}
 									alt={project.name}
@@ -225,10 +225,12 @@ const project = [
 							</a>
 						</div>
 						<div class="col-span-1 flex flex-col justify-center lg:space-y-5 md:space-y-4 space-y-3">
-							<h3 class="capitalize font-bold">{project.name}</h3>
+							<h4 class="uppercase font-bold">{project.name}</h4>
 							<p>{project.description}</p>
 							<a
 								href={project.link}
+								target="_blank"
+								rel="noopener noreferrer"
 								class="inline-flex items-center space-x-2 w-fit group capitalize"
 							>
 								<Icon

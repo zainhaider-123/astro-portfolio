@@ -22,10 +22,9 @@ const navLinks: navLink[] = [
           >
         </h3>
         <p class="mt-5 sm:max-w-2xl">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo,
-          earum ab facilis vel atque debitis, aut possimus repudiandae suscipit
-          nobis ipsa mollitia consectetur sapiente itaque voluptatibus ut
-          voluptas placeat ratione!
+          Got an idea, a question, or just want to say hi? Drop me a line —
+          always happy to geek out about code, design, and building things on
+          the web.
         </p>
       </div>
       <div class="lg:col-span-1 sm:col-span-2 col-span-5">
@@ -44,13 +43,13 @@ const navLinks: navLink[] = [
       </div>
       <div class="lg:col-span-2 sm:col-span-3 col-span-5">
         <h4 class="font-bold capitalize">join my newsletter</h4>
-        <form action="">
+        <form id="newsletter-form">
           <div class="mt-6 flex flex-col gap-4">
             <input
               type="email"
               name="email"
               placeholder="example@email.com"
-              id=""
+              required
               class="w-full border-[1.5px] border-foreground/80 p-2 rounded-lg"
             />
             <button
@@ -85,3 +84,29 @@ const navLinks: navLink[] = [
     </div>
   </div>
 </footer>
+
+<script>
+  import Toastify from "toastify-js";
+  import "toastify-js/src/toastify.css";
+
+  const form = document.getElementById(
+    "newsletter-form",
+  ) as HTMLFormElement | null;
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    Toastify({
+      text: "Thanks for joining the newsletter!",
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#111111",
+        color: "#e0e0e0",
+      },
+    }).showToast();
+
+    form.reset();
+  });
+</script>
